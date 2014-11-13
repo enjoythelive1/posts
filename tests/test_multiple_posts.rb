@@ -3,7 +3,7 @@ require 'test/unit'
 
 postsfile = File.join(__dir__, "posts.json")
 
-class testPosts < Test::Unit::TestCase
+class TestPosts < Test::Unit::TestCase
     def correctInitialization
         @postsAccess = Posts.new(postfile)
         assert_not_nil(@postsAccess, "Instancia creada correctamente")
