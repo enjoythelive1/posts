@@ -3,7 +3,7 @@ class Post
 
     def initialize(hash)
         if !hash.nil?
-            @id = hash['id']
+            @id = hash['id'].to_i
             @title = hash['title']
             @tags = hash['tags'].split(%r{,\s*})
             @description = hash['description']
