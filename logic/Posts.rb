@@ -4,61 +4,58 @@ require_relative 'Post'
 
 class Posts
     def initialize(jsonfile=nil)
+
         if jsonfile.nil?
-            jsonfile = File.join(__dir__, 'posts.json')
+            jsonfile = './posts.json'
         end
 
         @file = jsonfile
         @jsonContent = '[]'
         @posts = []
 
-        if File.exists? jsonfile
-                @jsonContent = File.read @file
-            end
-
-            jsonParsed = json.parse(jsonContent)
-
-            if jsonParsed['posts'].responds_to? 'map'
-                @posts = jsonParsed[posts].map({|item| return Post.new(item)})
-            elsif jsonParsed['posts'].is_a Hash
-                @posts = [Post.new(jsonParsed['posts'])]
-
+        if File.exists? @file
+            @jsonContent = File.read @file
         end
 
-    def findPostById(id)
+        jsonParsed = JSON.parse(@jsonContent)
 
-        return @posts.select({ |item|
-            return item.id == id
-        }).first
+        listOfPost = Array.try_convert(jsonParsed['posts'])
 
+        if listOfPost
+            @posts = listOfPost.map { |item| Post.new(item) }
+        elsif jsonParsed['posts'].is_a? Hash
+            @posts = [Post.new(jsonParsed['posts'])]
+        end
 
     end
 
-    def findPostsByAuthor(author)
-        return @posts.select({|item|
-            return item.author == author
-        })
+    def findById(id)
+
+        return (@posts.select { |item| item.id == id }).first
+
+    end
+
+    def findByAuthor(author)
+        return @posts.select{|item| item.author == author }
     end
 
 
-    def findPostsByTag(tag)
-        return @posts.select({|item|
-            return item.tags.include(tag)
-        })
+    def findByTag(tagToFind)
+        return @posts.select{|item| item.tags.include?(tagToFind)}
     end
 
     def countAllTags()
         tags = {}
 
-        @posts.each({|item|
-            item.tags.each({|tag|
+        @posts.each {|item|
+            item.tags.each { |tag|
                 if tags[tag].nil?
                     tags[tag] = 0
                 end
 
-                tags[tag]++
-            })
-        })
+                tags[tag]+= 1
+            }
+        }
 
 
         return tags

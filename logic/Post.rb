@@ -1,5 +1,5 @@
 class Post
-    attr_accessor: id, title, tags, description, author
+    attr_accessor :id, :title, :tags, :description, :author
 
     def initialize(hash)
         if !hash.nil?
@@ -12,6 +12,6 @@ class Post
     end
 
     def descriptionResume()
-        return @description[0 ... 10] <<< " ..."
+        return @description[0 ... 10] << " ..."
     end
 end
