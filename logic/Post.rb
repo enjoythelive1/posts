@@ -11,7 +11,7 @@ class Post
         end
     end
 
-    def descriptionResume()
+    def description_summary()
         return @description[0 ... 10] << " ..."
     end
 end

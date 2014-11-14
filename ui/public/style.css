@@ -1,0 +1,21 @@
+body {
+    background-color: rgb(238, 255, 238);
+    font-family: sans-serif;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+    body > section {
+        padding: 15px;
+    }
+
+h1.page-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 40px;
+    width: 100%;
+    background-color: rgb(221, 238, 221);
+    padding: 12px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
