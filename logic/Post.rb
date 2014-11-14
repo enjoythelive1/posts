@@ -12,6 +12,23 @@ class Post
     end
 
     def description_summary()
-        return @description[0 ... 10] << " ..."
+        index = 0
+        maxindex = @description.length - 1
+        for i in 0..9
+            index = @description.index(/\s/, index)
+
+            if index.nil?
+                return @description << '...'
+            end
+
+            index += 1
+
+            if index > maxindex
+                break;
+            end
+
+        end
+
+        return @description[0 .. index - 1] << '...'
     end
 end
