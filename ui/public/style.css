@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: rgb(238, 255, 238);
     font-family: sans-serif;
@@ -17,5 +21,82 @@ h1.page-title {
     background-color: rgb(221, 238, 221);
     padding: 12px;
     box-sizing: border-box;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
+}
+
+h2.posts-title,
+h2.post-title {
+    margin-top: 0;
+    text-align: center;
+}
+
+.post-list {
+    background-color: white;
+    padding: 0px;
+    border: 1px inset #eee;
+    border-radius: 10px;
+    box-shadow: 0px 0 15px #bbb inset;
+}
+
+article.post-list-item {
+    width: 100%;
+    min-height: 120px;
+    border-bottom: 1px solid #aaa;
+    padding: 0 15px 15px;
+}
+
+article.post-list-item:last-child {
+    border-bottom: none;
+}
+
+.post-list-item > h3 {
+    color: black;
+}
+
+.post-list-item > h3 a,
+.posts-title a,
+.post-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.post-list-item > h3 a:hover,
+.post-list-item > h3 a:active,
+.posts-title a:hover,
+.post-title a:active,
+.posts-title a:hover,
+.post-title a:active {
+    color: #106;
+}
+
+.tags .tags-list {
+    list-style: none;
+    padding: 0;
+    /* width: 100%; */
+    min-height: 25px;
+    margin: 0;
+    text-align: inherit;
+}
+
+.tags-list .tag {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 4px;
+    text-decoration: none;
+    background-color: #eef0f3;
+    border: 1px solid #dde0e3;
+    border-radius: 4px;
+    margin: 0 2px;
+    color: #456;
+}
+
+.tags-list .tag a {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.post-list .tags .tags-list {
+    display: inline-block;
+    text-align: right;
 }

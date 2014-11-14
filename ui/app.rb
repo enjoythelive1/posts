@@ -3,6 +3,8 @@ require 'sinatra'
 
 postFinder = Posts.new
 
+set :public_folder, File.dirname(__FILE__) + '/public'
+
 get '/posts/:id' do |id|
     if id.nil?
         return halt 400, 'Su URL esta mal escrita, lo siento'

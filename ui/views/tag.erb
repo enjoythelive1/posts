@@ -1,23 +1,23 @@
 <html>
     <head>
         <title>Post con el Tag <%=tag%>-Post de solo Lectura :D </title>
-        <link rel="stylesheet" href="/css/style.css" type="text/css">
+        <link rel="stylesheet" href="/style.css" type="text/css">
     </head>
     <body>
         <h1 class="page-title">Post de Solo Lectura</h1>
         <section class="tag-posts posts">
-            <h2 class="tag-posts-title posts-title">Post con el Tag <%=tag%></h2>
+            <h2 class="tag-posts-title posts-title">Post con el Tag <i><%=tag%></i></h2>
             <div class="post-list">
                 <% for post in posts %>
                 <article class="post-list-item">
-                    <h3><%=post.title%> <small>by <%=post.author%></small></h3>
+                    <h3><a href="/posts/<%=post.id%>"><%=post.title%></a> <small>by <a href="/author/<%=post.author%>"><%=post.author%></a></small></h3>
                     <p class="description-summary">
-                        <%=post.description_summary%>
+                        <%=post.description_summary%> <a href="/posts/<%=post.id%>">Ver mas</a>
                     </p>
                      <div class="tags">
-                        <ul class="post-tags-list">
+                         <b>Tags:</b> <ul class="tags-list">
                             <% for tag in post.tags %>
-                                <li class="tag" ><%=tag %></li>
+                            <li class="tag" ><a href="/tag/<%=tag%>"><%=tag %></a></li>
                             <% end %>
                         </ul>
                     </div>
